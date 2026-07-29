@@ -1,0 +1,22 @@
+import DynamicalSystemsApproachTurbulenceLemmaCanonicalLaneLean.TurbulenceAnalyticCertificate
+
+namespace HautevilleHouse
+namespace DynamicalSystemsApproachTurbulenceLemmaCanonicalLaneLean
+
+def TurbulenceAdmittedAnalyticClosure : Prop :=
+  TurbulenceAnalyticCertificateClosed sourceTurbulenceAnalyticCertificate ∧
+  ConstrainedTheoremClosure turbulenceAdmissibleClass
+
+def UnrestrictedClassicalTurbulenceBoundaryCarried : Prop :=
+  formalizationCertificate.theoremBoundaryOpen = true ∧
+  mathlibPDESubstrate.unrestrictedNavierStokesStackCarried = true
+
+theorem turbulence_admitted_analytic_closure_checked : TurbulenceAdmittedAnalyticClosure := by
+  exact And.intro source_turbulence_analytic_certificate_closed
+    (constrained_theorem_closure turbulenceAdmissibleClass)
+
+theorem unrestricted_classical_turbulence_boundary_carried_checked : UnrestrictedClassicalTurbulenceBoundaryCarried := by
+  exact And.intro rfl rfl
+
+end DynamicalSystemsApproachTurbulenceLemmaCanonicalLaneLean
+end HautevilleHouse

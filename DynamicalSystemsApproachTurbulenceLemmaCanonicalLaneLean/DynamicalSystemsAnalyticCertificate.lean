@@ -1,0 +1,29 @@
+import DynamicalSystemsApproachTurbulenceLemmaCanonicalLaneLean.TurbulenceEndpointLayer
+
+namespace HautevilleHouse
+namespace DynamicalSystemsApproachTurbulenceLemmaCanonicalLaneLean
+
+structure DynamicalSystemsAnalyticCertificate where
+  turbulenceEndpointClosed : Prop
+  canonicalCarriageImported : Prop
+  turbulenceEndpointClosedProof : turbulenceEndpointClosed
+  canonicalCarriageImportedProof : canonicalCarriageImported
+
+def sourceDynamicalSystemsAnalyticCertificate : DynamicalSystemsAnalyticCertificate := {
+  turbulenceEndpointClosed := TurbulenceEndpointClosed sourceTurbulenceEndpointCertificate,
+  canonicalCarriageImported := commonCoreProjectionLawAvailable ∧ commonCoreCarriageLawAvailable ∧ commonCoreIdempotenceAvailable,
+  turbulenceEndpointClosedProof := source_turbulence_endpoint_closed,
+  canonicalCarriageImportedProof := And.intro mathlib_common_core_projection_law_checked
+    (And.intro mathlib_common_core_carriage_law_checked mathlib_common_core_idempotence_checked)
+}
+
+def DynamicalSystemsAnalyticCertificateClosed (C : DynamicalSystemsAnalyticCertificate) : Prop :=
+  C.turbulenceEndpointClosed ∧ C.canonicalCarriageImported
+
+theorem source_dynamical_systems_analytic_certificate_closed :
+    DynamicalSystemsAnalyticCertificateClosed sourceDynamicalSystemsAnalyticCertificate := by
+  exact And.intro sourceDynamicalSystemsAnalyticCertificate.turbulenceEndpointClosedProof
+    sourceDynamicalSystemsAnalyticCertificate.canonicalCarriageImportedProof
+
+end DynamicalSystemsApproachTurbulenceLemmaCanonicalLaneLean
+end HautevilleHouse
